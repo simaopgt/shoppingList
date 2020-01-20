@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class CaniveteViewModel (private val caniveteRepository: CaniveteRepositoryInterface) : ViewModel() {
 
-    val allBooks : LiveData<List<ItemsList>> by lazy {
+    val allItems : LiveData<List<ItemsList>> by lazy {
         caniveteRepository.allBooks()
     }
 

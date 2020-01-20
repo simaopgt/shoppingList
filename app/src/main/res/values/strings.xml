@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">caniveteSuicoV1</string>
+    <string name="app_name">Lista de Compras</string>
+    <string name="add">+</string>
+    <string name="title">Lista de Compras</string>
+    <string name="item_name">Item Name</string>
+    <string name="edit_buttom">Edit</string>
+    <string name="delete_buttom">Del</string>
+    <string name="item_qtd">Item Qtd.</string>
+    <string name="item_price">Item Price</string>
 </resources>
