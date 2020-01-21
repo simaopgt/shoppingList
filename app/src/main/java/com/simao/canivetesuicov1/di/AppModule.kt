@@ -1,10 +1,10 @@
 package com.simao.canivetesuicov1.di
 
 import androidx.room.Room
-import com.simao.canivetesuicov1.repository.CaniveteDatabase
-import com.simao.canivetesuicov1.repository.CaniveteRepository
-import com.simao.canivetesuicov1.repository.CaniveteRepositoryInterface
-import com.simao.canivetesuicov1.viewmodel.CaniveteViewModel
+import com.simao.canivetesuicov1.repository.ShoppingListDatabase
+import com.simao.canivetesuicov1.repository.ShoppingListRepository
+import com.simao.canivetesuicov1.repository.ShoppingListRepositoryInterface
+import com.simao.canivetesuicov1.viewmodel.ShoppingListViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -12,15 +12,15 @@ import org.koin.dsl.module
 val modules : Module = module {
 
 //    Create Database
-    single { Room.databaseBuilder(get(), CaniveteDatabase::class.java, "itemsList_database").build() }
+    single { Room.databaseBuilder(get(), ShoppingListDatabase::class.java, "itemsList_database").build() }
 
 //    Create BookDAO
-    single { get<CaniveteDatabase>().caniveteDao() }
+    single { get<ShoppingListDatabase>().caniveteDao() }
 
-//    Create CaniveteRepository
-    single <CaniveteRepositoryInterface> {CaniveteRepository(get()) }
+//    Create ShoppingListRepository
+    single <ShoppingListRepositoryInterface> {ShoppingListRepository(get()) }
 
-//    Create CaniveteViewModel
-     viewModel { CaniveteViewModel(get()) }
+//    Create ShoppingListViewModel
+     viewModel { ShoppingListViewModel(get()) }
 
 }

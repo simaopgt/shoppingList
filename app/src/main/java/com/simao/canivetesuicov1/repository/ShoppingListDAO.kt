@@ -5,7 +5,7 @@ import androidx.room.*
 import com.simao.canivetesuicov1.model.ItemsList
 
 @Dao
-interface CaniveteDAO {
+interface ShoppingListDAO {
 
     @Query("SELECT * FROM item_list")
     fun getAll(): LiveData<List<ItemsList>>

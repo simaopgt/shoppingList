@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simao.canivetesuicov1.R
 import com.simao.canivetesuicov1.model.ItemsList
 import com.simao.canivetesuicov1.view.adapter.ListAdapter
-import com.simao.canivetesuicov1.viewmodel.CaniveteViewModel
+import com.simao.canivetesuicov1.viewmodel.ShoppingListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.add_item_name_textView
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val caniveteViewModel : CaniveteViewModel by viewModel()
+    private val shoppingListViewModel : ShoppingListViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeItemList(recyclerView: RecyclerView) {
-        caniveteViewModel.allItems.observe(this, Observer {
+        shoppingListViewModel.allItems.observe(this, Observer {
             recyclerView.adapter = createAdapter()
         })
     }
@@ -38,11 +38,11 @@ class MainActivity : AppCompatActivity() {
     private fun bindAddItemToListButton() {
         add_button.setOnClickListener{
             val itemsList = ItemsList(getItemName(), getItemQtd() , getItemPrice())
-            caniveteViewModel.insert(itemsList)
+            shoppingListViewModel.insert(itemsList)
         }
     }
 
-    private fun createAdapter() = ListAdapter(caniveteViewModel.allItems.value, this, caniveteViewModel, this)
+    private fun createAdapter() = ListAdapter(shoppingListViewModel.allItems.value, this, shoppingListViewModel, this)
 
     private fun getItemName() : String {
         return add_item_name_textView.text.toString()

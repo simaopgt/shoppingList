@@ -3,7 +3,7 @@ package com.simao.canivetesuicov1.repository
 import androidx.lifecycle.LiveData
 import com.simao.canivetesuicov1.model.ItemsList
 
-interface CaniveteRepositoryInterface {
+interface ShoppingListRepositoryInterface {
 
     suspend fun insert (item: ItemsList)
 

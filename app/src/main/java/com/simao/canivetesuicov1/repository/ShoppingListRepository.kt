@@ -3,22 +3,22 @@ package com.simao.canivetesuicov1.repository
 import androidx.lifecycle.LiveData
 import com.simao.canivetesuicov1.model.ItemsList
 
-class CaniveteRepository(private val caniveteDao: CaniveteDAO) : CaniveteRepositoryInterface {
+class ShoppingListRepository(private val shoppingListDao: ShoppingListDAO) : ShoppingListRepositoryInterface {
 
     override suspend fun insert (item: ItemsList) {
-        caniveteDao.insert(item)
+        shoppingListDao.insert(item)
     }
 
     override fun allBooks(): LiveData<List<ItemsList>> {
-        return caniveteDao.getAll()
+        return shoppingListDao.getAll()
     }
 
     override suspend fun update(item: ItemsList) {
-        caniveteDao.update(item)
+        shoppingListDao.update(item)
     }
 
     override suspend fun delete(item: ItemsList) {
-        caniveteDao.delete(item)
+        shoppingListDao.delete(item)
     }
 
 }

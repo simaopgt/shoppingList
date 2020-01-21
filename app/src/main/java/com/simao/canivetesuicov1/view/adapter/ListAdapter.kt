@@ -11,12 +11,12 @@ import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.simao.canivetesuicov1.R
 import com.simao.canivetesuicov1.model.ItemsList
-import com.simao.canivetesuicov1.viewmodel.CaniveteViewModel
+import com.simao.canivetesuicov1.viewmodel.ShoppingListViewModel
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class ListAdapter (private val itemList: List<ItemsList>?,
                    private val context: Context,
-                   private val caniveteViewModel: CaniveteViewModel,
+                   private val shoppingListViewModel: ShoppingListViewModel,
                    private val activity: Activity
 ) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
@@ -35,7 +35,7 @@ class ListAdapter (private val itemList: List<ItemsList>?,
         item?.let { holder.bindView(it) }
 
         holder.deleteButton.setOnClickListener {
-            item?.let { caniveteViewModel.delete(it) }
+            item?.let { shoppingListViewModel.delete(it) }
         }
 
         holder.editButton.setOnClickListener {
@@ -59,7 +59,7 @@ class ListAdapter (private val itemList: List<ItemsList>?,
                 item?.itemQtd = editQtdField.text.toString()
                 item?.itemPrice = editPriceField.text.toString()
 
-                item?.let { caniveteViewModel.update(it) }
+                item?.let { shoppingListViewModel.update(it) }
             }
             setNegativeButton("Cancelar", null)
 
