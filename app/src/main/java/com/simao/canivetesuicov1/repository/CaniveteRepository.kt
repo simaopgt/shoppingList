@@ -13,6 +13,10 @@ class CaniveteRepository(private val caniveteDao: CaniveteDAO) : CaniveteReposit
         return caniveteDao.getAll()
     }
 
+    override suspend fun update(item: ItemsList) {
+        caniveteDao.update(item)
+    }
+
     override suspend fun delete(item: ItemsList) {
         caniveteDao.delete(item)
     }

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simao.canivetesuicov1.R
 import com.simao.canivetesuicov1.model.ItemsList
 import com.simao.canivetesuicov1.view.adapter.ListAdapter
+import com.simao.canivetesuicov1.viewmodel.CaniveteViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.add_item_name_textView
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -41,26 +42,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun createAdapter() :ListAdapter {
-        return ListAdapter(caniveteViewModel.allItems.value, this, caniveteViewModel)
-    }
+    private fun createAdapter() = ListAdapter(caniveteViewModel.allItems.value, this, caniveteViewModel, this)
 
     private fun getItemName() : String {
-        return if (add_item_name_textView.text.toString() == ""){
-            ""
-        } else add_item_name_textView.text.toString()
+        return add_item_name_textView.text.toString()
     }
 
     private fun getItemQtd() : String {
-        return if (add_item_qtd_textView.text.toString() == ""){
-            ""
-        } else add_item_qtd_textView.text.toString()
+        return add_item_qtd_textView.text.toString()
     }
 
     private fun getItemPrice() : String {
-        return if (add_item_price_textView.text.toString() == ""){
-            ""
-        } else add_item_price_textView.text.toString()
+        return add_item_price_textView.text.toString()
     }
-
 }

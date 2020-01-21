@@ -1,4 +1,4 @@
-package com.simao.canivetesuicov1.view
+package com.simao.canivetesuicov1.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +19,10 @@ class CaniveteViewModel (private val caniveteRepository: CaniveteRepositoryInter
 
     fun delete (item : ItemsList) = viewModelScope.launch {
         caniveteRepository.delete(item)
+    }
+
+    fun update (item: ItemsList) = viewModelScope.launch {
+        caniveteRepository.update(item)
     }
 
 }

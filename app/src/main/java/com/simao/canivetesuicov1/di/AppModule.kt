@@ -4,7 +4,7 @@ import androidx.room.Room
 import com.simao.canivetesuicov1.repository.CaniveteDatabase
 import com.simao.canivetesuicov1.repository.CaniveteRepository
 import com.simao.canivetesuicov1.repository.CaniveteRepositoryInterface
-import com.simao.canivetesuicov1.view.CaniveteViewModel
+import com.simao.canivetesuicov1.viewmodel.CaniveteViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

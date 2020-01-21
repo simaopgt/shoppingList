@@ -9,6 +9,8 @@ interface CaniveteRepositoryInterface {
 
     suspend fun delete (item: ItemsList)
 
+    suspend fun update (item: ItemsList)
+
     fun allBooks() : LiveData<List<ItemsList>>
 
 }

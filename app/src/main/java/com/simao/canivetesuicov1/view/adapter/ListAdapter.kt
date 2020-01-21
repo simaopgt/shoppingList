@@ -1,19 +1,24 @@
 package com.simao.canivetesuicov1.view.adapter
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.simao.canivetesuicov1.R
 import com.simao.canivetesuicov1.model.ItemsList
-import com.simao.canivetesuicov1.view.CaniveteViewModel
+import com.simao.canivetesuicov1.viewmodel.CaniveteViewModel
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class ListAdapter (private val itemList: List<ItemsList>?,
                    private val context: Context,
-                   private val caniveteViewModel: CaniveteViewModel) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+                   private val caniveteViewModel: CaniveteViewModel,
+                   private val activity: Activity
+) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
@@ -21,32 +26,50 @@ class ListAdapter (private val itemList: List<ItemsList>?,
     }
 
     override fun getItemCount(): Int {
-        if (itemList != null) {
-            return itemList.size
-        }
-        return 0
+        return itemList?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList?.get(position)
 
-        if (item != null) {
-            holder.bindView(item)
-        }
+        item?.let { holder.bindView(it) }
 
         holder.deleteButton.setOnClickListener {
-            if (item != null) {
-                caniveteViewModel.delete(item)
-            }
-            itemList?.toMutableList()?.removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, itemList!!.size)
+            item?.let { caniveteViewModel.delete(it) }
         }
+
+        holder.editButton.setOnClickListener {
+            dialogBuilder(item)
+        }
+    }
+
+    private fun dialogBuilder(item: ItemsList?) {
+        AlertDialog.Builder(activity).apply {
+            val dialogView = activity.layoutInflater.inflate(R.layout.update_list_dialog, null)
+            val editNameField = dialogView.findViewById<EditText>(R.id.edit_name_field)
+            val editQtdField = dialogView.findViewById<EditText>(R.id.edit_qtd_field)
+            val editPriceField = dialogView.findViewById<EditText>(R.id.edit_price_field)
+
+            setView(dialogView)
+
+            setTitle("Edição de items")
+            setMessage("Insira o Nome, Quantidade e Preço")
+            setPositiveButton("Confirmar") {_, _ ->
+                item?.itemName = editNameField.text.toString()
+                item?.itemQtd = editQtdField.text.toString()
+                item?.itemPrice = editPriceField.text.toString()
+
+                item?.let { caniveteViewModel.update(it) }
+            }
+            setNegativeButton("Cancelar", null)
+
+        }.create().show()
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val deleteButton: Button = itemView.delete_button
+        val editButton: Button = itemView.edit_button
 
         fun bindView(item: ItemsList){
             val itemName = itemView.add_item_name_textView

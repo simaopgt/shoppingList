@@ -7,4 +7,7 @@
     <string name="delete_buttom">Del</string>
     <string name="item_qtd">Item Qtd.</string>
     <string name="item_price">Item Price</string>
+    <string name="edit_dialog_name_field">Item</string>
+    <string name="edit_dialog_qtd_field">Qtd.</string>
+    <string name="edit_dialog_price_field">Price</string>
 </resources>
