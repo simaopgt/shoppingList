@@ -10,6 +10,7 @@ import com.simao.shoppingList.view.adapter.ListAdapter
 import com.simao.shoppingList.viewmodel.ShoppingListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.add_item_name_textView
+import kotlinx.android.synthetic.main.list_item.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun bindAddItemToListButton() {
         add_button.setOnClickListener{
-            val itemsList = ItemsList(getItemName(), getItemQtd())
+            val itemsList = ItemsList(getItemName(), getItemQtd(), "False")
             shoppingListViewModel.insert(itemsList)
         }
     }

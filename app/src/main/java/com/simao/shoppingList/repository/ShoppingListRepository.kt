@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import com.simao.shoppingList.model.ItemsList
 
 class ShoppingListRepository(private val shoppingListDao: ShoppingListDAO) : ShoppingListRepositoryInterface {
-
     override suspend fun insert (item: ItemsList) {
         shoppingListDao.insert(item)
     }
@@ -20,5 +19,4 @@ class ShoppingListRepository(private val shoppingListDao: ShoppingListDAO) : Sho
     override suspend fun delete(item: ItemsList) {
         shoppingListDao.delete(item)
     }
-
 }

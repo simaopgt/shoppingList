@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.simao.shoppingList.R
@@ -41,6 +42,11 @@ class ListAdapter (private val itemList: List<ItemsList>?,
         holder.editButton.setOnClickListener {
             dialogBuilder(item)
         }
+
+        holder.checkBox.setOnClickListener {
+            item?.isChecked = holder.checkBox.isChecked.toString()
+            item?.let { shoppingListViewModel.update(item) }
+        }
     }
 
     private fun dialogBuilder(item: ItemsList?) {
@@ -56,9 +62,11 @@ class ListAdapter (private val itemList: List<ItemsList>?,
             setPositiveButton("Confirmar") {_, _ ->
                 item?.itemName = editNameField.text.toString()
                 item?.itemQtd = editQtdField.text.toString()
+                item?.isChecked = "False"
 
                 item?.let { shoppingListViewModel.update(it) }
             }
+
             setNegativeButton("Cancelar", null)
 
         }.create().show()
@@ -68,6 +76,7 @@ class ListAdapter (private val itemList: List<ItemsList>?,
 
         val deleteButton: Button = itemView.delete_button
         val editButton: Button = itemView.edit_button
+        val checkBox: CheckBox = itemView.item_check_checkbox
 
         fun bindView(item: ItemsList){
             val itemName = itemView.add_item_name_textView
@@ -75,8 +84,7 @@ class ListAdapter (private val itemList: List<ItemsList>?,
 
             itemName.text = item.itemName
             itemQtd.text = item.itemQtd
+            checkBox.isChecked = item.isChecked.toBoolean()
         }
-
     }
-
 }
