@@ -24,21 +24,9 @@
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
-        android:ems="10"
-        android:hint="@string/edit_dialog_qtd_field"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/edit_price_field"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edit_price_field"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="@string/edit_dialog_price_field"
+        android:hint="@string/edit_dialog_qtd_field"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

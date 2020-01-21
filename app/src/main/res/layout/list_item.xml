@@ -10,77 +10,69 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <CheckBox
+            android:id="@+id/item_check_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/add_item_name_textView"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="@string/item_name"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_check_checkbox"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/item_qtd_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="@string/item_qtd"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/add_item_name_textView"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/item_price_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="@string/item_price"
-            app:layout_constraintStart_toEndOf="@+id/item_qtd_textView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/delete_button"
-            android:layout_width="50dp"
+            android:background="@drawable/circle_shape"
+            android:layout_width="40dp"
             android:layout_height="40dp"
-            android:textSize="8sp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:textColor="#FFFFFF"
             android:text="@string/delete_buttom"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/edit_button"
-            android:layout_width="50dp"
+            android:background="@drawable/circle_shape"
+            android:layout_width="40dp"
             android:layout_height="40dp"
-            android:textSize="8sp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:text="@string/edit_buttom"
+            android:textColor="#FFFFFF"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/delete_button"
             app:layout_constraintTop_toTopOf="parent" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

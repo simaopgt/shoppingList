@@ -15,7 +15,7 @@ val modules : Module = module {
     single { Room.databaseBuilder(get(), ShoppingListDatabase::class.java, "itemsList_database").build() }
 
 //    Create BookDAO
-    single { get<ShoppingListDatabase>().caniveteDao() }
+    single { get<ShoppingListDatabase>().shoppingListDAO() }
 
 //    Create ShoppingListRepository
     single <ShoppingListRepositoryInterface> {ShoppingListRepository(get()) }

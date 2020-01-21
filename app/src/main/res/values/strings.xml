@@ -10,4 +10,5 @@
     <string name="edit_dialog_name_field">Item</string>
     <string name="edit_dialog_qtd_field">Qtd.</string>
     <string name="edit_dialog_price_field">Price</string>
+    <string name="app_title">Lista de Compras</string>
 </resources>

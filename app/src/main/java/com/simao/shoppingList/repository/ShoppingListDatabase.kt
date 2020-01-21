@@ -6,5 +6,5 @@ import com.simao.shoppingList.model.ItemsList
 
 @Database(entities = [ItemsList::class], version = 1)
 abstract class ShoppingListDatabase: RoomDatabase() {
-    abstract fun caniveteDao() : ShoppingListDAO
+    abstract fun shoppingListDAO() : ShoppingListDAO
 }

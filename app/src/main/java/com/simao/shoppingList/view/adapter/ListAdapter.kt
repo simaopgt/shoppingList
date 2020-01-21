@@ -48,7 +48,6 @@ class ListAdapter (private val itemList: List<ItemsList>?,
             val dialogView = activity.layoutInflater.inflate(R.layout.update_list_dialog, null)
             val editNameField = dialogView.findViewById<EditText>(R.id.edit_name_field)
             val editQtdField = dialogView.findViewById<EditText>(R.id.edit_qtd_field)
-            val editPriceField = dialogView.findViewById<EditText>(R.id.edit_price_field)
 
             setView(dialogView)
 
@@ -57,7 +56,6 @@ class ListAdapter (private val itemList: List<ItemsList>?,
             setPositiveButton("Confirmar") {_, _ ->
                 item?.itemName = editNameField.text.toString()
                 item?.itemQtd = editQtdField.text.toString()
-                item?.itemPrice = editPriceField.text.toString()
 
                 item?.let { shoppingListViewModel.update(it) }
             }
@@ -74,11 +72,9 @@ class ListAdapter (private val itemList: List<ItemsList>?,
         fun bindView(item: ItemsList){
             val itemName = itemView.add_item_name_textView
             val itemQtd = itemView.item_qtd_textView
-            val itemPrice = itemView.item_price_textView
 
             itemName.text = item.itemName
             itemQtd.text = item.itemQtd
-            itemPrice.text = item.itemPrice
         }
 
     }

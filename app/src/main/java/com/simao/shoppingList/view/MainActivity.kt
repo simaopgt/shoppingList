@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun bindAddItemToListButton() {
         add_button.setOnClickListener{
-            val itemsList = ItemsList(getItemName(), getItemQtd() , getItemPrice())
+            val itemsList = ItemsList(getItemName(), getItemQtd())
             shoppingListViewModel.insert(itemsList)
         }
     }
@@ -50,9 +50,5 @@ class MainActivity : AppCompatActivity() {
 
     private fun getItemQtd() : String {
         return add_item_qtd_textView.text.toString()
-    }
-
-    private fun getItemPrice() : String {
-        return add_item_price_textView.text.toString()
     }
 }
