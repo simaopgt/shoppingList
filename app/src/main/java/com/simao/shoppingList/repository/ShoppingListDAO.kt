@@ -1,8 +1,8 @@
-package com.simao.canivetesuicov1.repository
+package com.simao.shoppingList.repository
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.simao.canivetesuicov1.model.ItemsList
+import com.simao.shoppingList.model.ItemsList
 
 @Dao
 interface ShoppingListDAO {

@@ -1,4 +1,4 @@
-package com.simao.canivetesuicov1
+package com.simao.shoppingList
 
 import org.junit.Test
 

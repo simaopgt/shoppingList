@@ -1,13 +1,13 @@
-package com.simao.canivetesuicov1.view
+package com.simao.shoppingList.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
-import com.simao.canivetesuicov1.R
-import com.simao.canivetesuicov1.model.ItemsList
-import com.simao.canivetesuicov1.view.adapter.ListAdapter
-import com.simao.canivetesuicov1.viewmodel.ShoppingListViewModel
+import com.simao.shoppingList.R
+import com.simao.shoppingList.model.ItemsList
+import com.simao.shoppingList.view.adapter.ListAdapter
+import com.simao.shoppingList.viewmodel.ShoppingListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.add_item_name_textView
 import org.koin.android.viewmodel.ext.android.viewModel

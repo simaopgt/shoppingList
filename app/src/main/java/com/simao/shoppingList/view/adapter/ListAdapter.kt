@@ -1,4 +1,4 @@
-package com.simao.canivetesuicov1.view.adapter
+package com.simao.shoppingList.view.adapter
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
-import com.simao.canivetesuicov1.R
-import com.simao.canivetesuicov1.model.ItemsList
-import com.simao.canivetesuicov1.viewmodel.ShoppingListViewModel
+import com.simao.shoppingList.R
+import com.simao.shoppingList.model.ItemsList
+import com.simao.shoppingList.viewmodel.ShoppingListViewModel
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class ListAdapter (private val itemList: List<ItemsList>?,

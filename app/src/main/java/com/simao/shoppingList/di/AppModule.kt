@@ -1,10 +1,10 @@
-package com.simao.canivetesuicov1.di
+package com.simao.shoppingList.di
 
 import androidx.room.Room
-import com.simao.canivetesuicov1.repository.ShoppingListDatabase
-import com.simao.canivetesuicov1.repository.ShoppingListRepository
-import com.simao.canivetesuicov1.repository.ShoppingListRepositoryInterface
-import com.simao.canivetesuicov1.viewmodel.ShoppingListViewModel
+import com.simao.shoppingList.repository.ShoppingListDatabase
+import com.simao.shoppingList.repository.ShoppingListRepository
+import com.simao.shoppingList.repository.ShoppingListRepositoryInterface
+import com.simao.shoppingList.viewmodel.ShoppingListViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

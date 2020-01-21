@@ -1,4 +1,4 @@
-package com.simao.canivetesuicov1.model
+package com.simao.shoppingList.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
