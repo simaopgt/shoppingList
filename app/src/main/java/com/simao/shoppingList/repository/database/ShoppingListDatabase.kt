@@ -1,4 +1,4 @@
-package com.simao.shoppingList.repository
+package com.simao.shoppingList.repository.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

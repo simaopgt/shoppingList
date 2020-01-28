@@ -18,13 +18,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/fun_facts_textview"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:text="Blablabla"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_title" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/buttons_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_title">
+        app:layout_constraintTop_toBottomOf="@+id/fun_facts_textview">
 
 
         <EditText

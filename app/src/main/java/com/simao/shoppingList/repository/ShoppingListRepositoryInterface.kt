@@ -1,6 +1,7 @@
 package com.simao.shoppingList.repository
 
 import androidx.lifecycle.LiveData
+import com.simao.shoppingList.model.CatFunFactAPIResponse
 import com.simao.shoppingList.model.ItemsList
 
 interface ShoppingListRepositoryInterface {
@@ -12,5 +13,7 @@ interface ShoppingListRepositoryInterface {
     suspend fun update (item: ItemsList)
 
     fun allBooks() : LiveData<List<ItemsList>>
+
+    suspend fun getAllFacts() : CatFunFactAPIResponse
 
 }

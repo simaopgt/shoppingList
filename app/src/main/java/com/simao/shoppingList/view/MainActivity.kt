@@ -3,7 +3,9 @@ package com.simao.shoppingList.view
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.simao.shoppingList.R
@@ -13,6 +15,7 @@ import com.simao.shoppingList.viewmodel.ShoppingListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.add_item_name_textView
 import org.koin.android.viewmodel.ext.android.viewModel
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(){
 
@@ -29,6 +32,13 @@ class MainActivity : AppCompatActivity(){
         bindAddItemToListButton()
 
         observeItemList(recyclerView)
+
+        shoppingListViewModel.getAllFacts()
+
+        shoppingListViewModel.catFactsLiveData.observe(this, Observer {
+            fun_facts_textview.text = it.all[Random.nextInt(0, it.all.size-1)].text
+        })
+
     }
 
     private fun observeItemList(recyclerView: RecyclerView) {
@@ -59,7 +69,7 @@ class MainActivity : AppCompatActivity(){
         }
     }
 
-    private fun createAdapter() = ListAdapter(shoppingListViewModel.allItems.value, this, shoppingListViewModel, this)
+    private fun createAdapter() = ListAdapter(shoppingListViewModel.allItems.value,this, shoppingListViewModel, this)
 
     private fun getItemName() : String {
         return add_item_name_textView.text.toString()
